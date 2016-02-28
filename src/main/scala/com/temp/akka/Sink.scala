@@ -7,6 +7,7 @@ class Sink extends Actor {
 
   override def preStart() {
     println("Starting sink")
+    println(this.self.path)
   }
 
   def receive = {

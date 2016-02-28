@@ -15,7 +15,7 @@ class MyRouter extends Actor {
       ActorRefRoutee(r)
     }
     Router(RoundRobinRoutingLogic(), routees)
-  }
+    }
 
   def receive = {
     case "done" => {
@@ -24,11 +24,11 @@ class MyRouter extends Actor {
     }
     case w: String =>
       router.route(w, sender())
-    case Terminated(a) =>
+/*    case Terminated(a) =>
       router = router.removeRoutee(a)
       val r = context.actorOf(Props[Worker])
       context watch r
-      router = router.addRoutee(r)
+      router = router.addRoutee(r)*/
 
   }
 }
